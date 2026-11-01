@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spin with Sam | Locator &amp; Realtor Rewards</title>
+<meta name="description" content="Register your clients for The Metroplex Collection. Every other Monday, Samantha draws a winning ticket and spins the prize wheel. Top prize: a $500 bonus.">
+<link rel="canonical" href="https://spinwithsamdfw.com/">
+<meta name="theme-color" content="#06100c">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://spinwithsamdfw.com/">
+<meta property="og:site_name" content="Spin with Sam">
+<meta property="og:title" content="Spin with Sam: Register your clients. Win every other Monday.">
+<meta property="og:description" content="Top prize: a $500 bonus. Plus Visa/Amex, H-E-B, Chick-fil-A and Starbucks gift cards. Register in about a minute, no sign-in.">
+<meta property="og:image" content="https://spinwithsamdfw.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Spin with Sam. Spin and Win. Locator and realtor rewards.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spin with Sam: Register your clients. Win every other Monday.">
+<meta name="twitter:description" content="Top prize: a $500 bonus. Register in about a minute, no sign-in.">
+<meta name="twitter:image" content="https://spinwithsamdfw.com/og.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/bungee.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/figtree-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Bungee";src:url(/bungee.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Figtree";src:url(/figtree-400.woff2) format("woff2");font-weight:400 500;font-display:swap}
+@font-face{font-family:"Figtree";src:url(/figtree-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Figtree";src:url(/figtree-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Figtree";src:url(/figtree-800.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(/jbmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(/jbmono-700.woff2) format("woff2");font-weight:700;font-display:swap}
+
+/* A classic casino floor: gold-bulb marquee sign, then green-felt tables. One deliberate dark look. Nothing flashes or animates. */
+:root{
+  --stage:#06100c;      /* casino floor, near-black green */
+  --stage-2:#0c3a28;    /* felt table */
+  --stage-3:#072318;    /* wells, dark felt */
+  --line:#2d6b4f;
+  --cream:#fff8e7;      /* primary text */
+  --muted:#a9cbb9;
+  --gold:#f7c948;
+  --red:#d7152f;
+  --teal:#9ad9c0;
+  --f-display:"Bungee","Arial Black",Impact,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--stage);-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--stage);
+  background-image:radial-gradient(ellipse 80% 45% at 50% 0%, rgba(247,201,72,.12) 0%, transparent 70%),
+                   repeating-linear-gradient(45deg, rgba(247,201,72,.035) 0 2px, transparent 2px 28px),
+                   repeating-linear-gradient(-45deg, rgba(247,201,72,.035) 0 2px, transparent 2px 28px);
+  color:var(--cream);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-top:max(24px, env(safe-area-inset-top, 0px));
+  padding-bottom:max(40px, env(safe-area-inset-bottom, 0px));
+  min-height:100vh;
+}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;letter-spacing:.01em;text-wrap:balance;margin:0}
+a{color:var(--gold)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.fine{margin:0;font-size:12.5px;color:var(--muted);max-width:60ch}
+.em{display:inline-block;max-width:100%;font-family:var(--f-mono);font-size:13px;color:var(--gold);user-select:all;overflow-wrap:anywhere}
+
+/* Marquee sign */
+.marquee{position:relative;border-radius:22px;padding:14px;background:var(--red);overflow:hidden}
+/* Gold bulbs centered in the red band; "round" fits a whole number of bulbs on every side */
+.marquee::before{content:"";position:absolute;inset:-4px;pointer-events:none;
+  background:radial-gradient(circle, var(--gold) 0 3.5px, rgba(247,201,72,.35) 3.5px 4.5px, transparent 5px) 0 0/22px 22px round}
+.marquee-inner{position:relative;background:radial-gradient(ellipse at 50% 30%, #123d2b 0%, #050806 80%);border-radius:12px;padding:26px 22px 22px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.suits{font-size:18px;letter-spacing:.5em;color:var(--gold);margin-right:-.5em}
+.suits .r{color:var(--red)}
+.brand{font-family:var(--f-display);font-size:15px;letter-spacing:.08em;color:var(--cream)}
+.marquee h1{font-size:clamp(40px,10vw,80px);line-height:1;color:var(--gold);text-shadow:0 3px 0 #6b4a12,0 6px 0 #2a1d05}
+.marquee h1 span{color:var(--cream)}
+.marquee p{margin:0;color:var(--muted);max-width:52ch}
+.marquee p.fine{max-width:60ch}
+.weekchip{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:4px}
+.chip{font-family:var(--f-mono);font-size:12.5px;padding:6px 11px;border-radius:999px;background:var(--stage-3);border:1px solid var(--line);color:var(--cream)}
+.chip b{color:var(--gold);font-weight:700}
+
+/* Felt tables */
+.panel{background:radial-gradient(ellipse 90% 70% at 50% 0%, #11573b 0%, var(--stage-2) 60%, #082a1d 100%);
+  border:3px solid #6b4a12;box-shadow:inset 0 0 0 2px var(--gold), inset 0 0 40px rgba(0,0,0,.45), 0 10px 30px rgba(0,0,0,.5);
+  border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.panel h2{font-size:22px;color:var(--gold)}
+.panel .sub{margin:-10px 0 0;color:var(--muted);font-size:14.5px}
+
+.prizeboard{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pb-label{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-right:4px}
+.pb{font-weight:700;font-size:13.5px;padding:6px 12px;border-radius:999px;background:var(--stage-3);border:1.5px solid var(--gold);color:var(--cream)}
+.pb.top{background:var(--gold);color:#1a1205}
+
+.cta{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px;border-radius:14px;background:var(--stage-3);border:2px dashed var(--gold)}
+.btn{position:relative;display:inline-block;text-align:center;text-decoration:none;font-family:var(--f-display);font-size:18px;letter-spacing:.03em;border:0;border-radius:999px;padding:15px 30px;cursor:pointer;color:var(--cream);background:var(--red);box-shadow:0 5px 0 #7a0a1a;transition:transform .08s, box-shadow .08s}
+.btn::after{content:"";position:absolute;inset:4px;border-radius:999px;border:2.5px dashed rgba(255,255,255,.55);pointer-events:none}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #7a0a1a}
+.btn.gold{background:var(--gold);color:#1a1205;box-shadow:0 5px 0 #9a7000}
+.btn.gold::after{border-color:rgba(26,18,5,.45)}
+.btn.gold:active{box-shadow:0 1px 0 #9a7000}
+.btn.claim{font-size:22px;padding:18px 34px}
+.btn.ghost{font-family:var(--f-body);font-weight:700;font-size:15px;background:var(--stage-3);border:1.5px solid var(--line);box-shadow:none;padding:11px 18px;color:var(--cream)}
+.btn.ghost::after{display:none}
+.btn.ghost:active{transform:translateY(1px)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+.howgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.how{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:12px;background:var(--stage-3);border:1px solid var(--line);font-size:14.5px;min-width:0}
+.how i{font-style:normal;font-family:var(--f-display);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#1a1205}
+.how b{font-family:var(--f-display);font-weight:400;color:var(--gold);font-size:16px}
+.how span{color:var(--muted)}
+
+.protect{display:flex;flex-direction:column;gap:12px;padding:16px 18px;border-radius:12px;background:var(--stage-3);border:2px solid var(--gold)}
+.protect h3{font-size:17px;color:var(--gold)}
+.protect ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--cream);max-width:70ch}
+
+.contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.contact p{margin:0;font-size:14.5px;color:var(--cream)}
+.contact p b{color:var(--gold)}
+
+/* Rules + footer */
+.rules{font-size:12.5px;color:var(--muted);line-height:1.55;display:flex;flex-direction:column;gap:6px}
+.rules h3{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream)}
+.rules p{margin:0;max-width:90ch}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+
+@media (max-width:640px){
+  .howgrid{grid-template-columns:minmax(0,1fr)}
+  .panel{padding:18px}
+  .cta{align-items:stretch}
+  .btn.claim{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="marquee">
+    <div class="marquee-inner">
+      <div class="suits" aria-hidden="true">♠<span class="r">♥</span>♣<span class="r">♦</span></div>
+      <div class="brand">Spin with Sam</div>
+      <div class="eyebrow">Locator &amp; Realtor Rewards · The Metroplex Collection</div>
+      <h1>Spin <span>&amp;</span> Win</h1>
+      <p>Register every client. Every other Monday, Samantha draws a winning ticket and spins the prize wheel. Top prize: a $500 bonus. Also on the wheel: Visa/Amex, H-E-B, Chick-fil-A and Starbucks gift cards.</p>
+      <p class="fine">Tickets are issued for approved leases. Each ticket can be used only once. Prizes are delivered after the client moves in. See drawing rules below.</p>
+      <div class="weekchip">
+        <span class="chip">This round <b id="weekRange">Nov 2 – Nov 15</b></span>
+        <span class="chip">Drawing <b id="drawDate">Mon, Nov 16</b></span>
+        <span class="chip">Top prize <b>$500 bonus</b></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+  <section class="panel" id="register" aria-labelledby="regTitle">
+    <h2 id="regTitle">Register your client</h2>
+    <p class="sub">Register every client at the tour. The more you register, the more chances you have on drawing day.</p>
+    <div class="prizeboard" aria-label="Prizes on the wheel">
+      <span class="pb-label">On the prize wheel</span>
+      <span class="pb top">$500 bonus</span><span class="pb">$75 H-E-B</span><span class="pb">$50 Chick-fil-A</span><span class="pb">$50 Visa/Amex</span><span class="pb">$25 Starbucks</span>
+    </div>
+    <div class="cta">
+      <a class="btn gold claim" href="https://forms.cloud.microsoft/r/6dnzpG2WTA" target="_blank" rel="noopener">Register your client</a>
+      <p class="fine">Takes about a minute. No sign-in needed. You'll see a confirmation as soon as it's in.</p>
+      <p class="fine">Link not opening? Copy this into your browser: <span class="em">forms.cloud.microsoft/r/6dnzpG2WTA</span></p>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="howTitle">
+    <h2 id="howTitle">How it works</h2>
+    <div class="howgrid">
+      <div class="how"><i>1</i><b>Register every client</b><span>Tap the gold button and fill out the quick form at the tour. No sign-in.</span></div>
+      <div class="how"><i>2</i><b>Lease approved = ticket</b><span>Once your client's lease is approved, your registration goes into that round's drawing.</span></div>
+      <div class="how"><i>3</i><b>We spin every other Monday</b><span>One winning ticket is drawn and the prize wheel decides the prize. Paid after move-in.</span></div>
+    </div>
+    <div class="protect">
+      <h3>Protect your commission</h3>
+      <ol>
+        <li>Email the guest card to the property <b>and</b> <span class="em">samoreno@willowbridgepc.com</span> in one email.</li>
+        <li>Your client puts your name and company on the application.</li>
+      </ol>
+    </div>
+    <div class="contact">
+      <p>Questions? Call or text <b>Sam</b> at 323-559-3230.</p>
+      <div class="row">
+        <a class="btn ghost" href="sms:+13235593230">Text Sam</a>
+        <a class="btn ghost" href="tel:+13235593230">Call</a>
+        <a class="btn ghost" href="mailto:samoreno@willowbridgepc.com?subject=Spin%20with%20Sam">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rules" aria-labelledby="rulesTitle">
+    <h3 id="rulesTitle">Drawing rules</h3>
+    <p>To qualify, the locator must email the client's guest card to the property and to Samantha Moreno (samoreno@willowbridgepc.com) in the same email, and the client must list the locator's name and company on the rental application. A registration becomes a ticket only when the client's lease application is approved, as confirmed by Samantha in the leasing system. Clients already approved or moved in can be registered and are added once confirmed. One winning ticket is drawn every other Monday from leases approved in the prior two-week round, then the prize wheel is spun to set the prize. Prizes are delivered only after the winning ticket's client has moved in; if the client does not move in, the win is void. Gift cards are delivered directly to the winning locator. The $500 bonus is paid through the winner's sponsoring broker. Each prize is funded by the community where the winning lease was signed.</p>
+    <p>One ticket per approved lease. Each ticket is entered in one drawing only, for the round the lease is approved in, and can be used only once; tickets do not carry over to later drawings. Each round runs two weeks, Monday through the second Sunday after; the winner is drawn the next day, a Monday, and contacted directly. The first round runs November 2–15, 2026, with the first drawing on Monday, November 16. There are two drawings a month on average. Not every ticket wins. A client registered by more than one locator counts only for the first registration received.</p>
+    <p>No purchase or lease is required to enter. For a free entry, text or email your name, company and "FREE ENTRY" to Samantha during the round. One free entry per person per round. Void where prohibited.</p>
+  </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Spin with Sam</span>
+    <span>Prepared by Samantha Moreno</span>
+  </footer>
+</div>
+
+<script>
+/* Keeps the round and drawing dates current: 2-week rounds starting Mon Nov 2, 2026, drawing the Monday after. */
+(function () {
+  var A = new Date(2026, 10, 2);
+  var now = new Date();
+  var x = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  if (x < A) x = new Date(A);
+  var idx = Math.floor(Math.round((x - A) / 864e5) / 14);
+  var start = new Date(A); start.setDate(A.getDate() + idx * 14);
+  var end = new Date(start); end.setDate(start.getDate() + 13);
+  var draw = new Date(start); draw.setDate(start.getDate() + 14);
+  function f(d, o) { return d.toLocaleDateString("en-US", o || { month: "short", day: "numeric" }); }
+  document.getElementById("weekRange").textContent = f(start) + " – " + f(end);
+  document.getElementById("drawDate").textContent = f(draw, { weekday: "short", month: "short", day: "numeric" });
+})();
+</script>
+</body>
+</html>
